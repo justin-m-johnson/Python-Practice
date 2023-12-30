@@ -1,3 +1,4 @@
+import pytest
 from calculator import square
 
 #pip install pytest
@@ -51,3 +52,6 @@ FAILED test_calc_categoried.py::test_negative - assert -4 == 4
 ================================================================ 2 failed, 1 passed in 0.03s =================================================================
 '''
 
+def test_str():
+    with pytest.raises(TypeError):
+        square("cat")
