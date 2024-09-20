@@ -7,6 +7,7 @@ from data_entry import get_amount, get_category, get_description, get_date
 class CSV:
     CSV_FILE = "finance_data.csv"
     COLUMNS = ["Date", "Description", "Category", "Amount"]
+    FORMAT = "%m-%d-%Y"
 
     @classmethod
     def initialize_csv(cls):
@@ -68,6 +69,16 @@ class CSV:
         -------
         None
         """
+
+    @classmethod
+    def get_transactions(cls, start_date, end_date)
+        df = pd.read_csv(cls.CSV_FILE)
+        df["Date"] = pd.to_datetime(df["Date"], format=CSV.FORMAT)
+        start_date = datetime.strptime(start_date, CSV.FORMAT)
+        end_date = datetime.strptime(end_date, CSV.FORMAT)
+
+        mask = (df["Date"] >= start_date) & (df["Date"] <= end_date)
+        filtered_df = df.loc[mask]
 
 def add():
     CSV.initialize_csv()
